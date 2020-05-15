@@ -1,0 +1,22 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+.text-field {
+    -fx-prompt-text-fill: red;
+}
+
+.button {
+    -fx-background-color: red;
+    -fx-background-radius: 12px;
+}
+
+.button:hover{
+    -fx-background-color: transparent;
+    -fx-border-color: red;
+    -fx-text-fill: red;
+    -fx-background-radius: 12px;
+}
