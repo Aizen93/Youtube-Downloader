@@ -9,6 +9,8 @@
 ## Download :
 You can download the setup file (MSI installer) here :
 - [MSI setup installer](https://srv-file12.gofile.io/download/GLV9On/YoutubeTelechargement-1.0.msi)
+- double click on it, and let the setup wizard do its magic
+- the setup wizard will install the program some where here `C:\Users\<users name>\AppData\Local\YoutubeTelechargement`
 
 ## Techno :
 - JavaFX
