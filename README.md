@@ -6,6 +6,10 @@
 - Youtube API does not support video download. In faсt it is prohibited.
 - This project is used only for educational purposes.
 
+## Download :
+You can download the setup file (MSI installer) here :
+- [MSI setup installer](https://srv-file12.gofile.io/download/GLV9On/YoutubeTelechargement-1.0.msi)
+
 ## Techno :
 - JavaFX
 - FXML
