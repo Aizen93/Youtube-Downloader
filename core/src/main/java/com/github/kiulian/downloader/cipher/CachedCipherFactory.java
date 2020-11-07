@@ -1,25 +1,5 @@
 package com.github.kiulian.downloader.cipher;
 
-/*-
- * #
- * Java youtube video and audio downloader
- *
- * Copyright (C) 2020 Igor Kiulian
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #
- */
-
 
 import com.github.kiulian.downloader.YoutubeException;
 import com.github.kiulian.downloader.extractor.Extractor;
@@ -33,7 +13,7 @@ public class CachedCipherFactory implements CipherFactory {
     private static String[] INITIAL_FUNCTION_PATTERNS = new String[]{
             "\\b[cs]\\s*&&\\s*[adf]\\.set\\([^,]+\\s*,\\s*encodeURIComponent\\s*\\(\\s*([a-zA-Z0-9$]+)\\(",
             "\\b[a-zA-Z0-9]+\\s*&&\\s*[a-zA-Z0-9]+\\.set\\([^,]+\\s*,\\s*encodeURIComponent\\s*\\(\\s*([a-zA-Z0-9$]+)\\(",
-            "\\b([a-zA-Z0-9$]{2})\\s*=\\s*function\\(\\s*a\\s*\\)\\s*\\{\\s*a\\s*=\\s*a\\.split\\(\\s*\"\"\\s*\\)", 
+            "(?:\\b|[^a-zA-Z0-9$])([a-zA-Z0-9$]{2})\\s*=\\s*function\\(\\s*a\\s*\\)\\s*\\{\\s*a\\s*=\\s*a\\.split\\(\\s*\"\"\\s*\\)",
             "([a-zA-Z0-9$]+)\\s*=\\s*function\\(\\s*a\\s*\\)\\s*\\{\\s*a\\s*=\\s*a\\.split\\(\\s*\"\"\\s*\\)",
             "([\"'])signature\\1\\s*,\\s*([a-zA-Z0-9$]+)\\(",
             "\\.sig\\|\\|([a-zA-Z0-9$]+)\\(",
@@ -104,9 +84,9 @@ public class CachedCipherFactory implements CipherFactory {
     }
 
     private List<JsFunction> getTransformFunctions(String js) throws YoutubeException {
-        String name = getInitialFunctionName(js).replaceAll("[^A-Za-z0-9_]", "");
+        String name = getInitialFunctionName(js).replaceAll("[^$A-Za-z0-9_]", "");
 
-        Pattern pattern = Pattern.compile(name + "=function\\(\\w\\)\\{[a-z=\\.\\(\\\"\\)]*;(.*);(?:.+)\\}");
+        Pattern pattern = Pattern.compile(Pattern.quote(name) + "=function\\(\\w\\)\\{[a-z=\\.\\(\\\"\\)]*;(.*);(?:.+)\\}");
 
         Matcher matcher = pattern.matcher(js);
         if (matcher.find()) {
@@ -153,7 +133,8 @@ public class CachedCipherFactory implements CipherFactory {
     }
 
     private String[] getTransformObject(String var, String js) throws YoutubeException {
-        var = var.replaceAll("[^A-Za-z0-9_]", "");
+        var = var.replaceAll("[^$A-Za-z0-9_]", "");
+        var = Pattern.quote(var);
         Pattern pattern = Pattern.compile(String.format("var %s=\\{(.*?)\\};", var), Pattern.DOTALL);
         Matcher matcher = pattern.matcher(js);
         if (matcher.find()) {

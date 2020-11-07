@@ -1,79 +1,42 @@
 package com.github.kiulian.downloader.model;
 
-/*-
- * #
- * Java youtube video and audio downloader
- *
- * Copyright (C) 2020 Igor Kiulian
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #
- */
-
-
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class VideoDetails {
+import com.alibaba.fastjson.JSONObject;
+import com.github.kiulian.downloader.YoutubeException;
 
-    private String videoId;
-    private String title;
-    private int lengthSeconds;
+public class VideoDetails extends AbstractVideoDetails {
+
     private List<String> keywords;
     private String shortDescription;
-    private List<String> thumbnails;
-    private String author;
     private long viewCount;
     private int averageRating;
     private boolean isLiveContent;
-    private boolean isLive;
+    private String liveUrl;
 
     public VideoDetails() {
     }
 
-    public VideoDetails(JSONObject json) {
-        videoId = json.getString("videoId");
+    public VideoDetails(JSONObject json, String liveHLSUrl) {
+        super(json);
         title = json.getString("title");
-        lengthSeconds = json.getIntValue("lengthSeconds");
+        author = json.getString("author");
+        isLive = json.getBooleanValue("isLive");
+
         keywords = json.containsKey("keywords") ? json.getJSONArray("keywords").toJavaList(String.class) : new ArrayList<String>();
         shortDescription = json.getString("shortDescription");
-        JSONArray jsonThumbnails = json.getJSONObject("thumbnail").getJSONArray("thumbnails");
-        thumbnails = new ArrayList<>(jsonThumbnails.size());
-        for (int i = 0; i < jsonThumbnails.size(); i++) {
-            JSONObject jsonObject = jsonThumbnails.getJSONObject(i);
-            if (jsonObject.containsKey("url"))
-                thumbnails.add(jsonObject.getString("url"));
-        }
         averageRating = json.getIntValue("averageRating");
         viewCount = json.getLongValue("viewCount");
-        author = json.getString("author");
         isLiveContent = json.getBooleanValue("isLiveContent");
-        isLive = json.getBooleanValue("isLive");
+        liveUrl = liveHLSUrl;
     }
 
-    public String videoId() {
-        return videoId;
-    }
-
-    public String title() {
-        return title;
-    }
-
-    public int lengthSeconds() {
-        return lengthSeconds;
+    @Override
+    protected void checkDownload() throws YoutubeException.LiveVideoException {
+        if (isLive || (isLiveContent && lengthSeconds() == 0))
+            throw new YoutubeException.LiveVideoException("Can not download live stream");
     }
 
     public List<String> keywords() {
@@ -84,14 +47,6 @@ public class VideoDetails {
         return shortDescription;
     }
 
-    public List<String> thumbnails() {
-        return thumbnails;
-    }
-
-    public String author() {
-        return author;
-    }
-
     public long viewCount() {
         return viewCount;
     }
@@ -100,12 +55,11 @@ public class VideoDetails {
         return averageRating;
     }
 
-    public boolean isLive() {
-        return isLive;
-    }
-
     public boolean isLiveContent() {
         return isLiveContent;
     }
 
+    public String liveUrl() {
+        return liveUrl;
+    }
 }

@@ -13,22 +13,17 @@
 
 <AnchorPane id="AnchorPane" prefHeight="667.0" prefWidth="1080.0" styleClass="mainFxmlClass" stylesheets="@assets/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuPrincipaleFXMLController">
    <children>
-      <ImageView fitHeight="667.0" fitWidth="1080.0" layoutY="-1.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <image>
-            <Image url="@assets/background.jpg" />
-         </image>
-      </ImageView>
       <TextField fx:id="link" layoutX="192.0" layoutY="153.0" prefHeight="30.0" prefWidth="811.0" promptText="Colle le lien que tu viens de copier ICI...">
          <font>
-            <Font name="Corbel Light" size="36.0" />
+            <Font name="AR DESTINE" size="36.0" />
          </font>
       </TextField>
-      <Button fx:id="telecharger" layoutX="374.0" layoutY="444.0" mnemonicParsing="false" onAction="#download" prefHeight="96.0" prefWidth="332.0" style="-fx-border-radius: 20;" text="Telecharger" textFill="WHITE">
+      <Button fx:id="telecharger" layoutX="374.0" layoutY="291.0" mnemonicParsing="false" onAction="#download" prefHeight="96.0" prefWidth="332.0" style="-fx-border-radius: 20;" text="Telecharger" textFill="WHITE">
          <font>
             <Font name="Microsoft New Tai Lue Bold" size="48.0" />
          </font>
       </Button>
-      <Text fx:id="info5" layoutX="14.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5. Tu clique sur telecharger quand tu aura coller le lien dans la barre de lien." wrappingWidth="264.13671875">
+      <Text fx:id="info5" layoutX="14.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5. Tu clique sur telecharger quand tu aura coller le lien dans la barre de lien." wrappingWidth="264.13671875">
          <font>
             <Font name="Lucida Sans Demibold" size="18.0" />
          </font>
@@ -38,7 +33,7 @@
             <Font name="Lucida Sans Demibold" size="18.0" />
          </font>
       </Text>
-      <ImageView fitHeight="47.0" fitWidth="45.0" layoutX="288.0" layoutY="473.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="47.0" fitWidth="45.0" layoutX="288.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/arrows.png" />
          </image>
@@ -58,8 +53,8 @@
             <Image url="@assets/arrows.png" />
          </image>
       </ImageView>
-      <ProgressBar fx:id="progressBar" layoutX="733.0" layoutY="470.0" prefHeight="52.0" prefWidth="305.0" progress="0.0" />
-      <Text fx:id="progresstext" layoutX="763.0" layoutY="544.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En cours ..." visible="false" wrappingWidth="274.13671255111694">
+      <ProgressBar fx:id="progressBar" layoutX="733.0" layoutY="317.0" prefHeight="52.0" prefWidth="305.0" progress="0.0" />
+      <Text fx:id="progresstext" layoutX="749.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En cours ..." visible="false" wrappingWidth="272.13671255111694">
          <font>
             <Font name="Lucida Sans Demibold" size="18.0" />
          </font>
@@ -85,5 +80,20 @@
           <MenuItem mnemonicParsing="false" onAction="#langFR" text="Français" />
         </items>
       </MenuButton>
+      <Text fx:id="info51" layoutX="511.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Youtube Downloader" textAlignment="CENTER" wrappingWidth="219.13671255111694" AnchorPane.bottomAnchor="93.1328125" AnchorPane.leftAnchor="511.0" AnchorPane.rightAnchor="350.0">
+         <font>
+            <Font name="AR DESTINE" size="36.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="350.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/youtube.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="info511" layoutX="958.0" layoutY="658.0" strokeType="OUTSIDE" strokeWidth="0.0" text="By Aizen93" textAlignment="CENTER" wrappingWidth="121.13670372054912">
+         <font>
+            <Font name="AR DESTINE" size="16.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

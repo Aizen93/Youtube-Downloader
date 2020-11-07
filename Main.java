@@ -23,7 +23,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
-        stage.setTitle("Telechargement de vidéo YouTube");
+        stage.setTitle("Download Youtube videos with a click - By Aizen93");
         stage.show();
     }
 

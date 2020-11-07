@@ -1,7 +1,6 @@
 import com.github.kiulian.downloader.OnYoutubeDownloadListener;
 import com.github.kiulian.downloader.YoutubeDownloader;
 import com.github.kiulian.downloader.YoutubeException;
-import com.github.kiulian.downloader.model.VideoDetails;
 import com.github.kiulian.downloader.model.YoutubeVideo;
 import com.github.kiulian.downloader.model.formats.AudioVideoFormat;
 
@@ -54,6 +53,9 @@ public class MenuPrincipaleFXMLController implements Initializable {
         if(link.contains("https://www.youtube.com/watch?v=")){//for https://www.youtube.com/watch?v=abc12345
             String[] res = link.split("\\?v=");
             result = res[1];
+            if(result.contains("&")){
+                result = result.substring(0, result.indexOf("&"));
+            }
         }else if(link.contains("https://www.youtube.com/watch?time_continue=")){//for https://www.youtube.com/watch?time_continue=1&v=Gi-n_k&feature=emb_logo
             String s = link.substring(link.indexOf("v=") + 2);
             result = s.substring(0, s.indexOf("&"));
@@ -108,23 +110,8 @@ public class MenuPrincipaleFXMLController implements Initializable {
                 String videoId = getVideoID(link.getText());
                 YoutubeVideo video = downloader.getVideo(videoId);
 
-                // video details
-                VideoDetails details = video.details();
-
                 // get videos with audio
                 List<AudioVideoFormat> videoWithAudioFormats = video.videoWithAudioFormats();
-
-                // filtering only video formats
-                /*List<VideoFormat> videoFormats = video.findVideoWithQuality(VideoQuality.large);
-                videoFormats.forEach(it -> {
-                    System.out.println(it.videoQuality() + " : " + it.url());
-                });*/
-
-                // itags can be found here - https://gist.github.com/sidneys/7095afe4da4ae58694d128b1034e01e2
-                /*Format formatByItag = video.findFormatByItag(136); 
-                if (formatByItag != null) {
-                    System.out.println(formatByItag.url());
-                }*/
 
                 File outputDir = new File(System.getProperty("user.home")+"/Desktop");
 
@@ -150,12 +137,13 @@ public class MenuPrincipaleFXMLController implements Initializable {
                         else if(language.equals("ENG")) progresstext.setText("Download finished !");
                         progresstext.setFill(Color.GREEN);
                         telecharger.setDisable(false);
+                        link.clear();
                     }
 
                     @Override
                     public void onError(Throwable throwable) {
                         if(language.equals("FR")) progresstext.setText("Erreur: Impossible de télécharger la vidéo");
-                        else if(language.equals("ENG")) progresstext.setText("Error: Downloading video impossible");
+                        else if(language.equals("ENG")) progresstext.setText("Error: Failed to downloading video");
                         progresstext.setFill(Color.GREEN);
                         telecharger.setDisable(false);
                     }
@@ -166,12 +154,13 @@ public class MenuPrincipaleFXMLController implements Initializable {
                 info2.setFill(Color.RED);
                 info3.setFill(Color.RED);
             }
-        }catch (YoutubeException | IOException | IndexOutOfBoundsException e){
+        }catch (YoutubeException | IOException | IndexOutOfBoundsException | NullPointerException e){
             progresstext.setVisible(true);
             if(language.equals("FR")) progresstext.setText("Erreur: Impossible de télécharger la vidéo");
-            else if(language.equals("ENG")) progresstext.setText("Error: Downloading video impossible");
+            else if(language.equals("ENG")) progresstext.setText("Error: Failed to downloading video");
             progresstext.setFill(Color.RED);
-            telecharger.setDisable(false);
+            telecharger.setDisable(false);      
+            
         }
     }
     

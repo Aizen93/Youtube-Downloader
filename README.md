@@ -1,4 +1,4 @@
- A small application to download YouTube videos using the URL. very easy to use and available in French and English langage. 
+ A small application to download YouTube videos simply by using the URL. very easy to use and available in French and English langage. 
 
 <br>
 
@@ -17,6 +17,10 @@ You can download the setup file (MSI installer) here :
 - FXML
 - CSS
 - MSI installer for deployment
+
+## Dependencies (for developers)
+- You might need to download the alibaba JSONObject jar from there github page for the latest version, or use the jar in the core's folder.
+- Add the jar to your project libraries.
 
 # Credits :
 I used `Kiulian` libray for vidéo Ciphers and parsing to handle the extraction, and I built an interface arround it to make it easy to use and simple.

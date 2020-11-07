@@ -3,10 +3,11 @@
  */
 
 .mainFxmlClass {
-
+    -fx-background-color: #575555;
 }
 .text-field {
-    -fx-prompt-text-fill: red;
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
 }
 
 .button {
@@ -19,4 +20,9 @@
     -fx-border-color: red;
     -fx-text-fill: red;
     -fx-background-radius: 12px;
+}
+
+#link{
+    -fx-background-color: #646262;
+    -fx-border-color: white;
 }
