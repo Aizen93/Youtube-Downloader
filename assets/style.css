@@ -10,19 +10,85 @@
     -fx-text-fill: white;
 }
 
-.button {
+#telecharger {
     -fx-background-color: red;
     -fx-background-radius: 12px;
 }
 
-.button:hover{
+#telecharger:hover {
     -fx-background-color: transparent;
     -fx-border-color: red;
     -fx-text-fill: red;
     -fx-background-radius: 12px;
 }
 
-#link{
+#link {
     -fx-background-color: #646262;
     -fx-border-color: white;
+}
+
+#audio {
+-fx-background-radius: 5em;
+-fx-min-width: 42px;
+-fx-min-height: 42px;
+-fx-max-width: 42px;
+-fx-max-height: 42px;
+-fx-background-image: url(mp3.png);
+-fx-background-size: 100%;
+-fx-background-repeat: no-repeat;
+-fx-background-position: right;
+-fx-background-color: transparent;
+}
+
+#video {
+-fx-background-radius: 5em;
+-fx-min-width: 42px;
+-fx-min-height: 42px;
+-fx-max-width: 42px;
+-fx-max-height: 42px;
+-fx-background-image: url(mp4.png);
+-fx-background-size: 100%;
+-fx-background-repeat: no-repeat;
+-fx-background-position: right;
+-fx-background-color: transparent;
+}
+
+#ranger {
+-fx-background-radius: 5em;
+-fx-min-width: 52px;
+-fx-min-height: 52px;
+-fx-max-width: 52px;
+-fx-max-height: 52px;
+-fx-background-image: url(ranger.png);
+-fx-background-size: 100%;
+-fx-background-repeat: no-repeat;
+-fx-background-position: right;
+-fx-background-color: transparent;
+}
+
+#ranger:pressed {
+-fx-min-width: 42px;
+-fx-min-height: 42px;
+-fx-max-width: 42px;
+-fx-max-height: 42px;
+}
+
+#delete {
+-fx-background-radius: 5em;
+-fx-min-width: 62px;
+-fx-min-height: 62px;
+-fx-max-width: 62px;
+-fx-max-height: 62px;
+-fx-background-image: url(trash.png);
+-fx-background-size: 100%;
+-fx-background-repeat: no-repeat;
+-fx-background-position: right;
+-fx-background-color: transparent;
+}
+
+#delete:pressed {
+-fx-min-width: 52px;
+-fx-min-height: 52px;
+-fx-max-width: 52px;
+-fx-max-height: 52px;
 }
