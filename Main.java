@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +6,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Oussama, achraf & Elouiza
+ * @author Oussama
  */
 public class Main extends Application {
     
@@ -23,7 +17,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
-        stage.setTitle("Download Youtube videos with a click - By Aizen93");
+        stage.setTitle("Download Youtube videos with a click - By Aizen93 - v1.3");
         stage.show();
     }
 

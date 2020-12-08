@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ProgressBar?>
@@ -15,74 +16,74 @@
 
 <AnchorPane id="AnchorPane" fx:id="mainAnchor" prefHeight="667.0" prefWidth="1080.0" styleClass="mainFxmlClass" stylesheets="@assets/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuPrincipaleFXMLController">
    <children>
-      <TextField fx:id="link" layoutX="192.0" layoutY="153.0" prefHeight="30.0" prefWidth="811.0" promptText="Colle le lien que tu viens de copier ICI...">
+      <TextField fx:id="link" alignment="CENTER" layoutX="192.0" layoutY="153.0" prefHeight="30.0" prefWidth="811.0" promptText="Colle le lien que tu viens de copier ICI..." AnchorPane.leftAnchor="192.0" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="153.0">
          <font>
             <Font name="AR DESTINE" size="36.0" />
          </font>
       </TextField>
-      <Button fx:id="telecharger" layoutX="374.0" layoutY="291.0" mnemonicParsing="false" onAction="#download" prefHeight="96.0" prefWidth="332.0" style="-fx-border-radius: 20;" text="Telecharger" textFill="WHITE">
+      <Button fx:id="telecharger" layoutX="374.0" layoutY="291.0" mnemonicParsing="false" onAction="#download" prefHeight="96.0" prefWidth="332.0" style="-fx-border-radius: 20;" text="Télécharger" textFill="WHITE" AnchorPane.bottomAnchor="272.0" AnchorPane.leftAnchor="374.0" AnchorPane.rightAnchor="374.13671255111694">
          <font>
             <Font name="Microsoft New Tai Lue Bold" size="48.0" />
          </font>
       </Button>
-      <Text fx:id="info5" layoutX="14.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5. Cliquez sur telecharger quand vous aurez coller le lien dans la barre de lien." wrappingWidth="264.13671875">
+      <Text fx:id="info5" layoutX="14.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5. Cliquez sur télécharger quand vous aurez coller le lien dans la barre de lien." visible="false" wrappingWidth="264.13671875" AnchorPane.bottomAnchor="297.390625" AnchorPane.leftAnchor="14.0">
          <font>
-            <Font name="Lucida Sans Demibold" size="16.0" />
+            <Font name="Comic Sans MS Bold" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="info4" layoutX="14.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barre de lien" wrappingWidth="121.13671875">
+      <Text fx:id="info4" layoutX="5.0" layoutY="189.8369140625" strokeType="OUTSIDE" strokeWidth="0.0" text="Barre de lien" visible="false" wrappingWidth="149.99999910593033" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="170.0">
          <font>
-            <Font name="Lucida Sans Demibold" size="18.0" />
+            <Font name="Comic Sans MS Bold" size="18.0" />
          </font>
       </Text>
-      <ImageView fitHeight="30.0" fitWidth="32.0" layoutX="146.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="arrow2" fitHeight="30.0" fitWidth="32.0" layoutX="155.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.leftAnchor="155.0" AnchorPane.topAnchor="172.0">
          <image>
             <Image url="@assets/arrows.png" />
          </image>
       </ImageView>
-      <Text fx:id="info" layoutX="311.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background: red;" text="1. Cliquez droit sur la vidéo" wrappingWidth="538.13671875">
+      <Text fx:id="info" layoutX="311.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background: red;" text="1. Cliquez droit sur la vidéo" visible="false" wrappingWidth="538.13671875" AnchorPane.leftAnchor="311.0" AnchorPane.topAnchor="32.8525390625">
          <font>
-            <Font name="Lucida Sans Demibold" size="18.0" />
+            <Font name="Comic Sans MS Bold" size="18.0" />
          </font>
       </Text>
-      <ImageView fitHeight="38.0" fitWidth="30.0" layoutX="525.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+      <ImageView fx:id="arrow1" fitHeight="38.0" fitWidth="30.0" layoutX="525.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" rotate="90.0" visible="false" AnchorPane.leftAnchor="525.0" AnchorPane.rightAnchor="525.0" AnchorPane.topAnchor="117.0">
          <image>
             <Image url="@assets/arrows.png" />
          </image>
       </ImageView>
-      <ProgressBar fx:id="progressBar" layoutX="733.0" layoutY="317.0" prefHeight="52.0" prefWidth="305.0" progress="0.0" />
+      <ProgressBar fx:id="progressBar" layoutX="733.0" layoutY="317.0" prefHeight="52.0" prefWidth="305.0" progress="0.0" AnchorPane.bottomAnchor="298.0" AnchorPane.rightAnchor="42.13671255111694" />
       <Text fx:id="progresstext" layoutX="749.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En cours ..." visible="false" wrappingWidth="272.13671255111694">
          <font>
             <Font name="Lucida Sans Demibold" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="info1" layoutX="311.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background: red;" text="2. Selectionez &quot;Copier l'URL de la vidéo&quot;" wrappingWidth="538.13671875">
+      <Text fx:id="info1" layoutX="311.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background: red;" text="2. Sélectionez &quot;Copier l'URL de la vidéo&quot;" visible="false" wrappingWidth="538.13671875" AnchorPane.leftAnchor="311.0" AnchorPane.topAnchor="53.8525390625">
          <font>
-            <Font name="Lucida Sans Demibold" size="18.0" />
+            <Font name="Comic Sans MS Bold" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="info2" layoutX="311.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background: red;" text="3. Cliquez droit sur la barre de lien désigner par la fléche" wrappingWidth="692.13671875">
+      <Text fx:id="info2" layoutX="311.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background: red;" text="3. Cliquez droit sur la barre de lien désigner par la fléche" visible="false" wrappingWidth="692.13671875" AnchorPane.leftAnchor="311.0" AnchorPane.topAnchor="74.8525390625">
          <font>
-            <Font name="Lucida Sans Demibold" size="18.0" />
+            <Font name="Comic Sans MS Bold" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="info3" layoutX="311.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background: red;" text="4. Selectionez coller" wrappingWidth="538.13671875">
+      <Text fx:id="info3" layoutX="311.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background: red;" text="4. Sélectionez coller" visible="false" wrappingWidth="538.13671875" AnchorPane.leftAnchor="311.0" AnchorPane.topAnchor="95.8525390625">
          <font>
-            <Font name="Lucida Sans Demibold" size="18.0" />
+            <Font name="Comic Sans MS Bold" size="18.0" />
          </font>
       </Text>
-      <MenuButton fx:id="lang" layoutX="967.0" layoutY="14.0" mnemonicParsing="false" text="Français">
+      <MenuButton fx:id="lang" layoutX="967.0" layoutY="14.0" mnemonicParsing="false" text="Français" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="14.0">
         <items>
           <MenuItem mnemonicParsing="false" onAction="#langENG" text="English" />
           <MenuItem mnemonicParsing="false" onAction="#langFR" text="Français" />
         </items>
       </MenuButton>
-      <Text fx:id="info51" layoutX="511.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Youtube Downloader" textAlignment="CENTER" wrappingWidth="219.13671255111694" AnchorPane.bottomAnchor="93.1328125" AnchorPane.leftAnchor="511.0" AnchorPane.rightAnchor="350.0">
+      <Text fx:id="info51" layoutX="511.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Youtube Downloader" textAlignment="CENTER" wrappingWidth="219.13671255111694" AnchorPane.bottomAnchor="93.1328125" AnchorPane.leftAnchor="510.13671255111694" AnchorPane.rightAnchor="349.86328744888306">
          <font>
             <Font name="AR DESTINE" size="36.0" />
          </font>
       </Text>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="350.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="580.136712551117">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="350.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="580.0">
          <image>
             <Image url="@assets/youtube.png" />
          </image>
@@ -92,23 +93,23 @@
             <Font name="AR DESTINE" size="16.0" />
          </font>
       </Text>
-      <ToggleButton fx:id="audio" disable="true" layoutX="456.0" layoutY="407.0" maxHeight="52.0" maxWidth="65.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="65.0">
+      <ToggleButton fx:id="audio" disable="true" layoutX="456.0" layoutY="407.0" maxHeight="52.0" maxWidth="65.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="65.0" AnchorPane.bottomAnchor="218.0" AnchorPane.leftAnchor="456.0">
          <toggleGroup>
             <ToggleGroup fx:id="format" />
          </toggleGroup>
       </ToggleButton>
-      <ToggleButton fx:id="video" layoutX="540.0" layoutY="407.0" mnemonicParsing="false" selected="true" toggleGroup="$format" />
-      <Text fx:id="info6" layoutX="75.0" layoutY="424.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6. Selectionez le format souhaité, Audio (mp3) ou Vidéo (mp4)" wrappingWidth="285.13671875">
+      <ToggleButton fx:id="video" layoutX="540.0" layoutY="407.0" mnemonicParsing="false" selected="true" toggleGroup="$format" AnchorPane.bottomAnchor="218.0" AnchorPane.rightAnchor="498.13671255111694" />
+      <Text fx:id="info6" layoutX="75.0" layoutY="424.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6. Sélectionez le format souhaité, Audio (mp3) ou Vidéo (mp4)" visible="false" wrappingWidth="285.13671875" AnchorPane.bottomAnchor="221.0078125" AnchorPane.leftAnchor="75.0">
          <font>
-            <Font name="Lucida Sans Demibold" size="16.0" />
+            <Font name="Comic Sans MS Bold" size="18.0" />
          </font>
       </Text>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="374.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="arrow4" fitHeight="30.0" fitWidth="30.0" layoutX="374.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.bottomAnchor="224.0" AnchorPane.leftAnchor="374.0">
          <image>
             <Image url="@assets/arrows.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="311.0" layoutY="328.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="arrow3" fitHeight="30.0" fitWidth="30.0" layoutX="311.0" layoutY="328.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.bottomAnchor="309.0" AnchorPane.leftAnchor="311.0">
          <image>
             <Image url="@assets/arrows.png" />
          </image>
@@ -119,16 +120,21 @@
             <Font name="AR CENA" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="info7" layoutX="22.0" layoutY="657.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ranger le bureau" textAlignment="CENTER" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="22.0">
+      <Text fx:id="info7" layoutX="5.0" layoutY="657.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ranger le bureau" textAlignment="CENTER" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0">
          <font>
-            <Font name="AR CENA" size="18.0" />
+            <Font name="Comic Sans MS Bold" size="17.0" />
          </font>
       </Text>
-      <Button fx:id="delete" layoutX="181.0" layoutY="578.0" mnemonicParsing="false" onAction="#deleteVideos" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="181.0" />
-      <Text fx:id="info8" layoutX="147.0" layoutY="656.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supprimer les videos" textAlignment="CENTER">
+      <Button fx:id="delete" layoutX="225.0" layoutY="578.0" mnemonicParsing="false" onAction="#deleteVideos" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="225.0" />
+      <Text fx:id="info8" layoutX="190.0" layoutY="656.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supprimer les videos" textAlignment="CENTER" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="190.0">
          <font>
-            <Font name="AR CENA" size="18.0" />
+            <Font name="Comic Sans MS Bold" size="17.0" />
          </font>
       </Text>
+      <CheckBox fx:id="help" layoutX="20.0" layoutY="18.0" mnemonicParsing="false" onAction="#showHelp" text="Aide">
+         <font>
+            <Font name="Comic Sans MS Bold" size="12.0" />
+         </font>
+      </CheckBox>
    </children>
 </AnchorPane>
