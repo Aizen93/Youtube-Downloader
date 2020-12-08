@@ -23,12 +23,14 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -48,6 +50,8 @@ public class MenuPrincipaleFXMLController implements Initializable {
     @FXML MenuButton lang;
     @FXML ToggleButton audio, video;
     @FXML ToggleGroup format = new ToggleGroup();
+    @FXML CheckBox help;
+    @FXML ImageView arrow1, arrow2, arrow3, arrow4;
     public BooleanProperty downloadFinished;
     private File videoFile;
     private String language;
@@ -82,6 +86,21 @@ public class MenuPrincipaleFXMLController implements Initializable {
     }
     
     @FXML
+    private void showHelp(){
+        info.setVisible(!info.isVisible());
+        info1.setVisible(!info1.isVisible());
+        info2.setVisible(!info2.isVisible());
+        info3.setVisible(!info3.isVisible());
+        info4.setVisible(!info4.isVisible());
+        info5.setVisible(!info5.isVisible());
+        info6.setVisible(!info6.isVisible());
+        arrow1.setVisible(!arrow1.isVisible());
+        arrow2.setVisible(!arrow2.isVisible());
+        arrow3.setVisible(!arrow3.isVisible());
+        arrow4.setVisible(!arrow4.isVisible());
+    }
+    
+    @FXML
     private void langENG(){
         info.setText("1. Right click on the video");
         info1.setText("2. select \"Copy video URL\"");
@@ -92,6 +111,7 @@ public class MenuPrincipaleFXMLController implements Initializable {
         info6.setText("6. Select the format you need, audio (mp3) or video (mp4)");
         info7.setText("Organize the desktop");
         info8.setText("Delete all videos");
+        help.setText("Help");
         telecharger.setText("Download");
         link.setPromptText("Past the link you just copied HERE...");
         lang.setText("English");
@@ -101,14 +121,15 @@ public class MenuPrincipaleFXMLController implements Initializable {
     @FXML
     private void langFR(){
         info.setText("1. Cliquez droit sur la vidéo");
-        info1.setText("2. Selectionez \"Copier l'URL de la vidéo\"");
+        info1.setText("2. Sélectionez \"Copier l'URL de la vidéo\"");
         info2.setText("3. Cliquez droit sur la barre de lien désigner par la fléche");
-        info3.setText("4. Selectionez coller");
+        info3.setText("4. Sélectionez coller");
         info4.setText("Barre de lien");
-        info5.setText("5. Cliquez sur telecharger quand vous aurez coller le lien dans la barre de lien.");
-        info6.setText("6. Selectionez le format souhaité, Audio (mp3) ou Vidéo (mp4)");
+        info5.setText("5. Cliquez sur télécharger quand vous aurez coller le lien dans la barre de lien.");
+        info6.setText("6. Sélectionez le format souhaité, Audio (mp3) ou Vidéo (mp4)");
         info7.setText("Ranger le bureau");
         info8.setText("Supprimer les vidéos");
+        help.setText("Aide");
         telecharger.setText("Télécharger");
         link.setPromptText("Colle le lien que tu viens de copier ICI...");
         lang.setText("Français");
@@ -147,6 +168,7 @@ public class MenuPrincipaleFXMLController implements Initializable {
                 info1.setFill(Color.BLACK);
                 info2.setFill(Color.BLACK);
                 info3.setFill(Color.BLACK);
+                link.setStyle("-fx-prompt-text-fill: white;");
                 telecharger.setDisable(true);
                 // init downloader
                 YoutubeDownloader downloader = new YoutubeDownloader();
@@ -187,14 +209,14 @@ public class MenuPrincipaleFXMLController implements Initializable {
                 info1.setFill(Color.RED);
                 info2.setFill(Color.RED);
                 info3.setFill(Color.RED);
+                link.setStyle("-fx-prompt-text-fill:red;");
             }
         }catch (YoutubeException | IOException | IndexOutOfBoundsException | NullPointerException e){
             progresstext.setVisible(true);
             if(language.equals("FR")) progresstext.setText("Erreur: Impossible de télécharger la vidéo");
             else if(language.equals("ENG")) progresstext.setText("Error: Failed to downloading video");
             progresstext.setFill(Color.RED);
-            telecharger.setDisable(false);      
-            
+            telecharger.setDisable(false);
         }
     }
     
@@ -337,10 +359,6 @@ public class MenuPrincipaleFXMLController implements Initializable {
             });
         } );
         delay.play();
-        
-        
-        
-        
     }    
     
 }
